@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('pdf', 'pdfController@invoice');
+
 
 Route::get('error', function()
 {
@@ -286,6 +286,9 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('calcular', 'Bosquejos\CalculoController@getForm');
 	Route::get('calcula', 'Bosquejos\CalculoController@getCalculo');
 	Route::get('presenta', 'Bosquejos\CalculoController@getPresenta');
+
+	Route::get('pdf', 'pdfController@getForm');
+	Route::get('relacionguardias', 'pdfController@getRelacionGuardias');
 	
 
 

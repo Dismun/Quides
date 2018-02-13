@@ -102,6 +102,16 @@
                                     
                             </ul>
                         </li>
+
+                         <li class="dropdown">
+                            <a href="{{ url('#') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="   false" >Informes  <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('/pdf') }}">Informe de turnos de Guardia</a></li>
+                                   
+                                    
+                            </ul>
+                        </li>
                        @endif
                        @endif
                     </ul>
