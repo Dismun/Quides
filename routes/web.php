@@ -309,3 +309,4 @@ Route::get('muestra', 'Bosquejos\CalculoController@getMuestra');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/defaultsite', 'HomeController@index')->name('home');

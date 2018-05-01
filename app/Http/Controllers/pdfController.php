@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DB;
+use App\Turno;
 
 class pdfController extends Controller
 {
@@ -54,9 +55,11 @@ class pdfController extends Controller
       public function getForm()
     {
         $fecha=Carbon::now();
-        
-        
-        return view('pdf.formpdf',compact(['fecha']));
+        $arrayTurnos=Turno::Select('id','descripcion')
+        ->where('activo',1)
+        ->orderBy('id')->get();
+        //dd($arrayTurnos);
+        return view('pdf.formpdf',compact(['fecha','arrayTurnos']));
     
 
     }

@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `dbquidespru`
 --
-CREATE DATABASE IF NOT EXISTS `dbquidespru` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `dbquidespru`;
+CREATE DATABASE IF NOT EXISTS `dismunc_dbquidespru` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `dismunc_dbquidespru`;
 
 -- --------------------------------------------------------
 
@@ -3622,50 +3622,6 @@ CREATE TABLE `view_externos` (
 ,`hasta` date
 );
 
--- --------------------------------------------------------
-
---
--- Estructura para la vista `viewbosquejo1`
---
-DROP TABLE IF EXISTS `viewbosquejo1`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewbosquejo1`  AS  select sql_cache `bosquejo`.`fecha` AS `fecha`,`bosquejo`.`id` AS `id`,`bosquejo`.`bloqueado` AS `bloqueado`,`personas`.`nombre` AS `nombre`,`turnos`.`codigo` AS `codigoturno`,`turnos`.`descripcion` AS `turno`,`puntos`.`codigo` AS `codigopunto`,`puntos`.`descripcion` AS `punto`,`niveles`.`color` AS `colornivel`,`niveles`.`descripcion` AS `nivel`,`centros`.`descripcion` AS `centro`,`centros`.`color` AS `colorcentro`,`centros`.`codigo` AS `codigocentro` from (((((`bosquejo` join `personas` on((`personas`.`id` = `bosquejo`.`idpersona`))) join `turnos` on((`turnos`.`id` = `bosquejo`.`idturno`))) join `puntos` on((`puntos`.`id` = `bosquejo`.`idpunto`))) join `centros` on((`centros`.`id` = `puntos`.`idcentro`))) join `niveles` on((`niveles`.`id` = `puntos`.`idnivel`))) ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `viewbosquejo2`
---
-DROP TABLE IF EXISTS `viewbosquejo2`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewbosquejo2`  AS  select sql_cache `bosquejo`.`fecha` AS `fecha`,`bosquejo`.`id` AS `id`,`bosquejo`.`bloqueado` AS `bloqueado`,`personas`.`nombre` AS `nombre`,`personas`.`id` AS `idperona`,`turnos`.`codigo` AS `codigoturno`,`turnos`.`descripcion` AS `turno`,`puntos`.`codigo` AS `codigopunto`,`puntos`.`descripcion` AS `punto`,`niveles`.`color` AS `colornivel`,`niveles`.`descripcion` AS `nivel`,`centros`.`descripcion` AS `centro`,`centros`.`color` AS `colorcentro`,`centros`.`codigo` AS `codigocentro`,`equipos`.`codigo` AS `codigoequipo`,`equipos`.`color` AS `colorequipo`,`equipos`.`orden` AS `ordenequipo`,`equipos_composicion`.`id` AS `ideqcomp` from (((((((`bosquejo` join `personas` on((`personas`.`id` = `bosquejo`.`idpersona`))) join `turnos` on((`turnos`.`id` = `bosquejo`.`idturno`))) join `puntos` on((`puntos`.`id` = `bosquejo`.`idpunto`))) join `equipos_composicion` on((`equipos_composicion`.`idpersona` = `bosquejo`.`idpersona`))) join `equipos` on((`equipos`.`id` = `equipos_composicion`.`idequipo`))) join `centros` on((`centros`.`id` = `puntos`.`idcentro`))) join `niveles` on((`niveles`.`id` = `puntos`.`idnivel`))) ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `viewbosquejo3`
---
-DROP TABLE IF EXISTS `viewbosquejo3`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewbosquejo3`  AS  select sql_cache `bosquejo`.`fecha` AS `fecha`,`bosquejo`.`id` AS `id`,`bosquejo`.`bloqueado` AS `bloqueado`,`personas`.`nombre` AS `nombre`,`personas`.`id` AS `idpersona`,`turnos`.`codigo` AS `codigoturno`,`turnos`.`descripcion` AS `turno`,`puntos`.`codigo` AS `codigopunto`,`puntos`.`descripcion` AS `punto`,`niveles`.`color` AS `colornivel`,`niveles`.`descripcion` AS `nivel`,`centros`.`descripcion` AS `centro`,`centros`.`color` AS `colorcentro`,`centros`.`codigo` AS `codigocentro`,`equipos`.`codigo` AS `codigoequipo`,`equipos`.`color` AS `colorequipo`,`equipos`.`orden` AS `ordenequipo`,`equipos_composicion`.`id` AS `ideqcomp` from (((((((`bosquejo` join `personas` on((`personas`.`id` = `bosquejo`.`idpersona`))) join `turnos` on((`turnos`.`id` = `bosquejo`.`idturno`))) join `puntos` on((`puntos`.`id` = `bosquejo`.`idpunto`))) join `equipos_composicion` on((`equipos_composicion`.`idpersona` = `bosquejo`.`idpersona`))) join `equipos` on((`equipos`.`id` = `equipos_composicion`.`idequipo`))) join `centros` on((`centros`.`id` = `puntos`.`idcentro`))) join `niveles` on((`niveles`.`id` = `puntos`.`idnivel`))) ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `viewchamanes`
---
-DROP TABLE IF EXISTS `viewchamanes`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewchamanes`  AS  select sql_cache `bosquejo`.`fecha` AS `fecha`,`bosquejo`.`id` AS `id`,`bosquejo`.`bloqueado` AS `bloqueado`,`personas`.`nombre` AS `nombre`,`personas`.`id` AS `idpersona`,`turnos`.`codigo` AS `codigoturno`,`turnos`.`descripcion` AS `turno`,`puntos`.`codigo` AS `codigopunto`,`puntos`.`descripcion` AS `punto`,`niveles`.`color` AS `colornivel`,`niveles`.`descripcion` AS `nivel`,`centros`.`descripcion` AS `centro`,`centros`.`color` AS `colorcentro`,`centros`.`codigo` AS `codigocentro` from (((((`bosquejo` join `personas` on((`personas`.`id` = `bosquejo`.`idpersona`))) join `turnos` on((`turnos`.`id` = `bosquejo`.`idturno`))) join `puntos` on((`puntos`.`id` = `bosquejo`.`idpunto`))) join `centros` on((`centros`.`id` = `puntos`.`idcentro`))) join `niveles` on((`niveles`.`id` = `puntos`.`idnivel`))) ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `view_externos`
---
-DROP TABLE IF EXISTS `view_externos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_externos`  AS  select `persona_externos`.`id` AS `id`,`personas`.`nombre` AS `nombre`,`persona_externos`.`desde` AS `desde`,`persona_externos`.`hasta` AS `hasta` from (`persona_externos` join `personas` on((`persona_externos`.`idpersona` = `personas`.`id`))) order by `persona_externos`.`desde` ;
 
 --
 -- Índices para tablas volcadas
